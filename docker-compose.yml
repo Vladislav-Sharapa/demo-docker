@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:15.3
+    environment:
+      POSTGRES_DB: "gres"
+      POSTGRES_USER: "gres"
+      POSTGRES_PASSWORD: "gres"
+    volumes:
+    - ./database/queries.sql:/docker-entrypoint-initdb.d/queries.sql
+    ports:
+      - "5432:5432"
+  app:
+    build: ./app/
+    depends_on:
+      - postgres
