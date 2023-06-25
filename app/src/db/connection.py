@@ -8,11 +8,11 @@ def open_connection():
     connection = None
     try:
         connection = connect(
-        host="127.0.0.1",
+        host="postgres",
         port="5432",
         database="gres",
         user="gres",
-        password="gres" )
+        password="gres")
     except Error as er:
         showerror(title="Fatal error", message=f"Connection failed {er}")
         
